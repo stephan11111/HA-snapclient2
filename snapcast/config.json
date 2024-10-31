@@ -1,9 +1,9 @@
 {
-  "name": "Snapcast2",
+  "name": "Snapcast",
   "version": "0.1",
   "init": false,
   "stage": "experimental",
-  "slug": "snapcast2",
+  "slug": "snapcast",
   "description": "Snapcast",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "services",
