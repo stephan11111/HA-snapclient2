@@ -1,6 +1,6 @@
 {
-  "name": "Snapcast",
-  "version": "0.5.3",
+  "name": "Snapcast2",
+  "version": "0.1",
   "init": false,
   "stage": "experimental",
   "slug": "snapcast",
@@ -8,7 +8,7 @@
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "services",
   "boot": "auto",
-  "url": "https://github.com/EvTheFuture/hassio-addon-snapcast",
+  "url": "https://github.com/stephan11111/HA-snapclient2",
   "webui": "http://[HOST]:[PORT:1780]/",
   "audio": true,
   "ingress": true,
@@ -17,7 +17,7 @@
   "panel_admin": false,
   "options": {
     "server": {
-      "enable": true,
+      "enable": false,
       "enable_web": true,
       "enable_stream_librespot": true,
       "librespot_name": "Spotify",
@@ -31,8 +31,8 @@
       "librespot_extra_params": ""
     },
     "client": {
-      "enable": false,
-      "host": "127.0.0.1",
+      "enable": true,
+      "host": "192.168.0.2",
       "extra_params": ""
     }
   },
@@ -60,5 +60,5 @@
     }
   },
   "host_network": true,
-  "image": "evthefuture/hassio-addon-snapcast-{arch}"
+  "image": "ghcr.io/home-assistant/{arch}-base-python:3.12-alpine3.20"
 }
