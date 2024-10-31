@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.6.0]
+* Replacing container to Alpine 3.2 and install snapcast from default sources
+* uses snapcast 0.29.0
+  
 ## [0.5.3]
 * Upgraded snapcast server
 
