@@ -42,6 +42,10 @@ fi
 
 bashio::log.info 'Starting the Snapcast server...'
 
+# Start STREAMS Section
+echo "[stream]" > "$config_file"
+
+# Librespot stream
 if bashio::config.true 'server.enable_stream_librespot' ; then
     declare -A PARAMS
     PARAMS["librespot_name"]="Spotify"
@@ -61,11 +65,28 @@ if bashio::config.true 'server.enable_stream_librespot' ; then
     bashio::config.has_value "server.librespot_extra_params" && extra_params="&$(bashio::config server.librespot_extra_params)"
 
     # TODO: add custom_streams
-    STREAMS="source = librespot:///usr/bin/librespot?name=$(getval 'librespot_name')&devicename=$(getval 'librespot_device_name')&bitrate=$(getval 'librespot_bitrate')&volume=$(getval 'librespot_initial_volume')&normalize=$(getval 'librespot_normalize')&disable_audio_cache=$(getval 'librespot_disable_audio_cache')${extra_params}${params}"
+    echo "source = librespot:///usr/bin/librespot?name=$(getval 'librespot_name')&devicename=$(getval 'librespot_device_name')&bitrate=$(getval 'librespot_bitrate')&volume=$(getval 'librespot_initial_volume')&normalize=$(getval 'librespot_normalize')&disable_audio_cache=$(getval 'librespot_disable_audio_cache')${extra_params}${params}" >> "$config_file"
 fi
 
-echo "[stream]" > "$config_file"
-echo "$STREAMS" >> "$config_file"
+# Radio (or MPD) stream
+if bashio::config.true 'server.enable_mpd' ; then
+    echo "source = pipe:///tmp/snapfifo?name=Radio" >> "$config_file"
+    if ! (pgrep mpd) ; then
+        exec /usr/bin/mpd&
+    fi
+fi
+
+# Shairport stream
+# DOESNT WORK mdns advertisment does not work
+#if bashio::config.true 'server.enable_stream_shairport' ; then
+#    shairport_params=""
+#    bashio::config.has_value "server.shairport_params" && shairport_params="&params=$(rawurlencode $(bashio::config server.shairport_params))"
+#
+#    echo "source = airplay:///usr/bin/shairport-sync?name=$(getval 'shairport_name')&devicename=$(getval 'shairport_devicename')${shairport_params}" >> "$config_file"
+#fi
+
+echo "buffer = $(getval 'buffer_ms')" >> "$config_file"
+
 echo "" >> "$config_file"
 
 # activate web server?
