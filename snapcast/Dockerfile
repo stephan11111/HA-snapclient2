@@ -17,9 +17,9 @@ RUN apk add --no-cache snapcast-client@edgeC snapcast-server@edgeC
 RUN apk add --no-cache librespot@edge
 #RUN apk add --no-cache shairport-sync@edgeC
 
-# Add fix for librespot play issue
-# https://github.com/librespot-org/librespot/issues/1527#issuecomment-3172903625
-RUN echo 0.0.0.0 apresolve.spotify.com >> /etc/hosts
+#Add fix for librespot play issue
+#https://github.com/librespot-org/librespot/issues/1527#issuecomment-3172903625
+RUN printf "0.0.0.0 apresolve.spotify.com" >> /etc/hosts
 
 RUN mkdir /etc/services.d/snapclient
 COPY snapclient-run /etc/services.d/snapclient/run
