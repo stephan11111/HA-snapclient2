@@ -1,6 +1,6 @@
 name: "SnapDev"
 description: "Snapcast Server & Client, librespot and MPD for Radio"
-version: "0.6.15"
+version: "0.6.16"
 slug: "snapcast2"
 init: false
 startup: services
