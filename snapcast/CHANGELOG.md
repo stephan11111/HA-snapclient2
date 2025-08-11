@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.6.16]
+* Add temp fix to play music with librespot
+  
 ## [0.6.14]
 * Installing latest snapcast version from edge Alpine repositories
 * uses snapcast 0.29.0
