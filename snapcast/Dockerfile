@@ -30,4 +30,4 @@ RUN apk add --no-cache mpd
 RUN printf "audio_output {\n    type            \"fifo\"\n    name            \"my pipe\"\n    path            \"/tmp/snapfifo\"\n    format          \"48000:16:2\"\n    mixer_type      \"software\"\n}"  >> /etc/mpd.conf
 
 #Install Snapweb
-RUN  cd /usr/share/snapserver/snapweb/ && wget https://github.com/badaix/snapweb/releases/download/v0.8.0/snapweb.zip && unzip -o snapweb.zip && rm snapweb.zip
+RUN  cd /usr/share/snapserver/snapweb/ && wget https://github.com/badaix/snapweb/releases/download/v0.9.2/snapweb.zip && unzip -o snapweb.zip && rm snapweb.zip
