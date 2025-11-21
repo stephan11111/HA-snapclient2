@@ -1,6 +1,6 @@
 Changes:
 * Installing latest snapcast version from edge Alpine repositories
-* (uses snapcast 0.29.0)
+* (uses snapcast 0.34.0)
 * adding option to use MPD for making a 2nd stream for Radio
 * adding buffer_ms option to configure snapcast buffer
 * adding snapweb installation
