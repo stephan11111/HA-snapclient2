@@ -40,7 +40,7 @@ options:
 #    shairport_params: ''
   client:
     enable: true
-    host: localshost
+    host: localhost
     extra_params: '--logsink=null --logfilter=*:fatal'
 schema:
   server:
