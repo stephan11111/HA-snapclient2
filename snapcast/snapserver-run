@@ -32,6 +32,8 @@ function getval() {
     fi
 }
 
+echo "0.0.0.0 apresolve.spotify.com" >> /etc/hosts
+
 declare -a options
 
 # If Snapcast is disabled, use a fake sleep process
