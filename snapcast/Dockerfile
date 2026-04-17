@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ghcr.io/home-assistant/base:latest
 #FROM ghcr.io/home-assistant/i386-base-python:3.12-alpine3.20
 ENV LANG C.UTF-8
 
